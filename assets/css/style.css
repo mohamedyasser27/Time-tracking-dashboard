@@ -83,6 +83,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  align-items: center;
   gap: 20px;
 }
 
@@ -123,10 +124,7 @@ main {
   cursor: pointer;
 }
 
-
-
-
-.selected{
+.selected {
   color: #fff !important;
 }
 
@@ -168,7 +166,7 @@ main {
   flex: 1;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  background-color: var(--activity-color) ;
+  background-color: var(--activity-color);
 
   /*relative to icon*/
   position: relative;
@@ -195,7 +193,11 @@ main {
   width: 80%;
   height: 80%;
   margin: 0 auto;
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
 }
+
 
 .top {
   display: flex;
@@ -206,24 +208,18 @@ main {
   font-weight: 500;
 }
 
-.title:hover {
-}
-
 .showMoreBtn {
   background-color: transparent;
   border: none;
 }
-.showMoreBtn>svg{
+.showMoreBtn > svg {
   fill: currentColor;
-  color: #BBC0FF;
+  color: #bbc0ff;
   cursor: pointer;
 }
 
-.showMoreBtn>svg:hover{
+.showMoreBtn > svg:hover {
   color: white;
-}
-
-.showMoreBtn:hover {
 }
 
 .bottom {
@@ -254,6 +250,12 @@ main {
   .userInfoTop > .content {
     flex-direction: row;
   }
+.bottom{
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
   .periodSelector {
     align-items: center;
     padding-left: 0px;

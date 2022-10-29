@@ -44,8 +44,16 @@ function addToDom(data, periodType) {
         .split(" ")
         .join("")}>.activityType .previousHours`
     );
+    let word = "Week";
 
-    previousHours.textContent = `${element.timeframes[periodType].previous}hrs`;
+    if (periodType == "weekly") {
+      word = "Week";
+    } else if (periodType == "monthly") {
+      word = "month";
+    } else {
+      word = "day";
+    }
+    previousHours.textContent = `Last ${word} - ${element.timeframes[periodType].previous}hrs`;
   });
 }
 
