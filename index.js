@@ -13,7 +13,7 @@ periodSelectorBtns.forEach((btn) => {
 });
 
 function fetchData(periodType) {
-  fetch("/data.json")
+  fetch("./data.json")
     .then((data) => {
       return data.json();
     })
