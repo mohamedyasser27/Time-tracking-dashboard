@@ -2,7 +2,7 @@
   --Blue: hsl(246, 80%, 60%);
   --Desaturated_blue: hsl(235, 45%, 61%);
   --Very_dark_blue: hsl(226, 43%, 10%);
-  --Dark_blue: hsl(235, 46%, 20%);
+  --Dark_blue: #1c1f4a;
   --Pale_Blue: hsl(236, 100%, 87%);
 }
 
@@ -58,8 +58,9 @@ main {
 }
 
 .userInfo {
-  border-radius: 20px;
-  background-color: var(--Blue);
+  background-color: var(--Dark_blue);
+  border-radius: 15px;
+
   grid-column: 1/2;
   grid-row: 1/3;
   display: flex;
@@ -67,7 +68,18 @@ main {
 }
 
 .userInfoTop {
+  border-radius: 15px;
+  background-color: var(--Blue);
   flex: 3;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.userInfoTop > .content {
+  width: 80%;
+  height: 80%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -88,6 +100,7 @@ main {
 
 .userName {
   font-size: 32px;
+  font-weight: 400;
 }
 
 .periodSelector {
@@ -97,91 +110,82 @@ main {
   align-items: flex-start;
   justify-content: space-around;
   flex-direction: column;
+  border-radius: 15px;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .periodSelector button {
   border: none;
-  color: var(--Pale_Blue);
+  color: var(--Desaturated_blue);
   background-color: transparent;
   cursor: pointer;
 }
 
 .periodSelector button:hover {
-  color:#fff;
+  color: #fff;
 }
+
 .work {
-  --activityColor: #ff8c66;
+  --activity-color: hsl(15, 100%, 70%);
 }
-
-.work::after {
-  content: url("../images/icon-work.svg");
-}
-
 .play {
-  --activityColor: #56c2e6;
-}
-.play::after {
-  content: url("../images/icon-play.svg");
+  --activity-color: hsl(195, 74%, 62%);
 }
 
 .study {
-  --activityColor: #ff5c7c;
-}
-
-.study::after {
-  content: url("../images/icon-study.svg");
+  --activity-color: hsl(348, 100%, 68%);
 }
 .exercise {
-  --activityColor: #4acf81;
-}
-.exercise::after {
-  content: url("../images/icon-exercise.svg");
+  --activity-color: hsl(145, 58%, 55%);
 }
 .social {
-  --activityColor: #7536d3;
-}
-
-.social::after {
-  content: url("../images/icon-social.svg");
+  --activity-color: hsl(264, 64%, 52%);
 }
 .selfcare {
-  --activityColor: #f1c65b;
+  --activity-color: hsl(43, 84%, 65%);
 }
 
-.selfcare::after {
-  content: url("../images/icon-self-care.svg");
+.psuedo {
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  background: linear-gradient(
+    180deg,
+    var(--activity-color) 0%,
+    var(--activity-color) 50%,
+    rgba(28, 31, 74, 1) 50%,
+    rgba(28, 31, 74, 1) 100%
+  );
+  border-radius: 15px;
+}
+
+.psuedoBefore {
+  flex: 1;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-color: var(--activity-color) ;
+
+  /*relative to icon*/
+  position: relative;
+  z-index: 0;
+}
+.psuedoBefore > img {
+  position: absolute;
+  right: 20px;
+  z-index: 0;
 }
 
 .activityType {
+  flex: 4;
   background-color: var(--Dark_blue);
   border-radius: 15px;
   display: flex;
   align-items: center;
-  /*relative to ::before*/
-
-  height: 170px;
+  /*relative to icon*/
   position: relative;
-}
-
-.activityType::before {
-  content: "";
-  background-color: var(--activityColor);
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-
-  width: 100%;
-  height: 100px;
-
-  position: absolute;
-  top: -25%;
-  left: 0;
-  z-index: -1;
-}
-.activityType::after {
-  position: absolute;
-  top: -25%;
-  right: 10px;
-  z-index: -1;
+  z-index: 1;
 }
 
 .activityType .content {
@@ -221,7 +225,7 @@ main {
 }
 
 .previousHours {
-  color: var(--Pale_Blue);
+  color: var(--Desaturated_blue);
 }
 
 /*for mobile*/
@@ -234,6 +238,14 @@ main {
   }
   .userInfoTop {
     flex: 2;
+  }
+  .userInfoTop > .content {
     flex-direction: row;
+  }
+  .periodSelector {
+    align-items: center;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
 }
