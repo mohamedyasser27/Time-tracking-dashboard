@@ -1,9 +1,13 @@
 let periodSelectorBtns = Array.from(
   document.querySelectorAll(".periodSelector > button")
 );
+let prev = document.querySelector("button.weekly");
 
 periodSelectorBtns.forEach((btn) => {
   btn.addEventListener("click", (event) => {
+    prev.classList.toggle("selected");
+    event.target.classList.toggle("selected");
+    prev = event.target;
     fetchData(event.target.textContent);
   });
 });
@@ -20,8 +24,9 @@ function fetchData(periodType) {
 
 function addToDom(data, periodType) {
   data.forEach((element) => {
+    console.log();
     let title = document.querySelector(
-      `.${element.title.toLowerCase().split(" ").join("")}>.content>.top>.title`
+      `.${element.title.toLowerCase().split(" ").join("")}>.activityType .title`
     );
     title.textContent = element.title;
 
@@ -29,25 +34,22 @@ function addToDom(data, periodType) {
       `.${element.title
         .toLowerCase()
         .split(" ")
-        .join("")}>.content>.bottom>.currentHours`
+        .join("")}>.activityType .currentHours`
     );
-    // console.log(element.timeframes[timeType]);
     currentHours.textContent = `${element.timeframes[periodType].current}hrs`;
 
     let previousHours = document.querySelector(
       `.${element.title
         .toLowerCase()
         .split(" ")
-        .join("")}>.content>.bottom>.previousHours>span`
+        .join("")}>.activityType .previousHours`
     );
+
     previousHours.textContent = `${element.timeframes[periodType].previous}hrs`;
   });
 }
 
-// timeframes:
-
-// daily:  { current: 5, previous: 7 }
-
-// monthly:  { current: 103, previous: 128 }
-
-// weekly:  { current: 32, previous: 36 }
+window.onload = function () {
+  fetchData("weekly");
+  document.querySelector("button.weekly").classList.toggle("selected");
+};

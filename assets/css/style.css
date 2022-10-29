@@ -123,8 +123,11 @@ main {
   cursor: pointer;
 }
 
-.periodSelector button:hover {
-  color: #fff;
+
+
+
+.selected{
+  color: #fff !important;
 }
 
 .work {
@@ -209,6 +212,15 @@ main {
 .showMoreBtn {
   background-color: transparent;
   border: none;
+}
+.showMoreBtn>svg{
+  fill: currentColor;
+  color: #BBC0FF;
+  cursor: pointer;
+}
+
+.showMoreBtn>svg:hover{
+  color: white;
 }
 
 .showMoreBtn:hover {
